@@ -55,13 +55,13 @@ bool CJoystickXInput::Equals(const CJoystick* rhs) const
 
 void CJoystickXInput::PowerOff()
 {
-  if (CXInputDLL::Get().SupportsPowerOff())
+  if (CXInputDLL::Get().Version() == "1.3")
     CXInputDLL::Get().PowerOff(m_controllerID);
 }
 
 bool CJoystickXInput::ScanEvents(void)
 {
-  if (CXInputDLL::Get().HasGuideButton())
+  if (CXInputDLL::Get().Version() == "1.3")
   {
     XINPUT_STATE_EX controllerState;
 
